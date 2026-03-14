@@ -3,4 +3,9 @@
 
 from langchain_community.document_loaders import PyPDFLoader
 
-file= "policy.pdf"
+file_path= "policy.pdf"
+loader=PyPDFLoader(file_path)
+
+docs=loader.lazy_load()
+for document in docs:
+    print(document)
