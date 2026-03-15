@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 ''' Loading information from .env '''
 load_dotenv()
-os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
+os.environ["HF_TOKEN"] = "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"
 
 
 ''' Converting pdf to texts  '''
