@@ -49,12 +49,11 @@ vector_store.add_documents(texts)
 
 ''' HuggingFace LLM '''
 llm = HuggingFaceEndpoint(
-    repo_id="HuggingFaceH4/zephyr-7b-beta",
+    repo_id="Qwen/Qwen2.5-7B-Instruct",
     huggingfacehub_api_token=os.getenv("HF_TOKEN"),
     temperature=0.3,
     max_new_tokens=512,
     task="text-generation",
-    provider="featherless-ai",
 )
 chat_model = ChatHuggingFace(llm=llm)
 
