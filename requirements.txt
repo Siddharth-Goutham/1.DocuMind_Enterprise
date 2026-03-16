@@ -6,3 +6,5 @@ pypdf
 sentence-transformers
 chromadb
 python-dotenv
+huggingface-hub
+chromadb
