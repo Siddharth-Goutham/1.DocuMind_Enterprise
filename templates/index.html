@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>DocuMind Enterprise</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+
+<h1>DocuMind Enterprise</h1>
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <div class="upload-box">
+            {{ form.hidden_tag() }}
+<!--        <input type="file" id="fileInput" name="folder_input">-->
+            <div id="file-upload">{{form.file()}}
+                {{form.submit(id="submit")}}
+                {% if form.submit.data %}
+                    <p>Uploaded</p>
+                {% endif %}
+<!--        <button type="submit">Upload Folder</button>-->
+</div>
+        </div>
+
+
+
+<div id="chat">
+    {% if answer %}
+    <div class="result">
+        <p><strong>You:</strong> {{ question }}</p>
+        <p><strong>Dev:</strong> {{ answer }}</p>
+    </div>
+{% endif %}
+</div>
+
+<div class="input-box">
+{{ form.text_box(id="question", class="text_button",placeholder="Ask about company policies...")}}
+{{ form.ask_button(id="ask", class="text_button") }}
+
+</div>
+</form>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
