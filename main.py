@@ -88,11 +88,22 @@ def home():
         if not relevant_docs:
             answer= "Sorry, I couldn't find relevant information in the document."
         else:
+            '''Adding page numbers and source'''
+            context_parts = []
+            source_pages = []
+            for doc in relevant_docs:
+                page_num = doc.metadata.get("page", 0) + 1
+                source_pages.append(str(page_num))
+                context_parts.append(f"[Source: Page {page_num}]\nContent: {doc.page_content}")
+
             '''Combine chunks as context'''
-            context = "\n\n".join([doc.page_content for doc in relevant_docs])
+            context = "\n\n".join(context_parts)
 
             '''Pass context + question to HuggingFace LLM'''
-            system_prompt = "You are a helpful assistant. Use the context below to answer the question.If the answer is not in the context, say \"I don't have enough information.\""
+            system_prompt = ("You are a helpful assistant. "
+                             "Use the context below to answer the question."
+                             "Always mention which page number the information came from in your answer. "
+                             "If the answer is not in the context, say \"I don't have enough information.\"")
             user_prompt = f"Context:\n{context}\n\nQuestion: {user_question}"
 
             messages = [
