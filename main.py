@@ -7,10 +7,9 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_chroma import Chroma
 import os
 from dotenv import load_dotenv
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import FileField, SubmitField, StringField
-from wtforms.validators import DataRequired
 from werkzeug.utils import secure_filename
 
 ''' Loading information from .env '''
