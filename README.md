@@ -60,6 +60,9 @@ python -m venv .venv
 3. Install Dependencies
 pip install -r requirements.txt
 
+4. Get the HF_Token from huggingface.co/settings/tokens.
+Add the token in .env file
+
 
 ▶️ Run the Application
 python app.py
