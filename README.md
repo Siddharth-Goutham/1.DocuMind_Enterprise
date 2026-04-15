@@ -65,7 +65,7 @@ Add the token in .env file
 
 
 ▶️ Run the Application
-python app.py
+python main.py
 
 Then open:
 http://127.0.0.1:5000
